@@ -1,0 +1,120 @@
+.app {
+  display: grid;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #444, #222);
+  color: #ddd;
+  place-content: center;
+}
+
+.counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  text-align: center;
+}
+
+.counter__display {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+h1 {
+  background: radial-gradient(circle, rgb(48, 255, 255), rgb(255, 63, 255));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  padding: 1rem;
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  gap: 1rem;
+  background: linear-gradient(135deg, rgb(48, 255, 255), rgb(255, 63, 255));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.25rem;
+  background-color: transparent;
+  color: #000000;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  position: relative;
+  transition: transform 0.2s;
+}
+
+button::before {
+  position: absolute;
+  background-color: rgba(33, 222, 219, 0.406);
+  transform: translateZ(-0.5rem);
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 0.25rem;
+  transition: transform 0.2s;
+}
+
+button::after {
+  transform: translateZ(1rem);
+  background-color: rgba(255, 0, 221, 0.44);
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 0.25rem;
+  transition: transform 0.2s;
+}
+
+button:hover {
+  animation: move alternate-reverse 1s;
+}
+
+@keyframes move {
+  0% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(40deg);
+    color: rgb(255, 255, 255);
+  }
+  100% {
+    transform: rotateY(0deg);
+  }
+}
+
+/* mobile */
+
+@media (max-width: 768px) {
+  .counter {
+    padding: 1rem;
+    scale: 0.8;
+  }
+  button {
+    padding: 0.25rem;
+    scale: 0.8;
+  }
+}
+
+/* desktop */
+
+@media (min-width: 1024px) {
+  .counter {
+    padding: 2rem;
+  }
+  article {
+    padding: 2rem;
+  }
+}
